@@ -1,2 +1,2 @@
-<ng-e-app-header></ng-e-app-header>
-<ng-e-app-content></ng-e-app-content>
+<ng-e-app-header (loginNotificator)="setLogin($event)" [isLoggedIn]="logged"></ng-e-app-header>
+<ng-e-app-content (loginNotificator)="setLogin($event)" [isLoggedIn]="logged"></ng-e-app-content>

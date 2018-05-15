@@ -2,13 +2,80 @@
   <div class="page-header">
     <img alt="Modus Logo" src="assets/images/modus-logo.png">
     <h1 class="heading">
-        Angular Exercise - Modus Recruiting
+      Angular Exercise - Modus Recruiting
     </h1>
   </div>
   <h2>Tasks</h2>
   <ul class="tasks-list">
-    <li *ngFor="let task of exerciseTasks;" [innerHTML]="task.description">
-
+    <li *ngFor="let task of exerciseTasks;">
+      <p [innerHTML]="task.description"></p>
+    </li>
+  </ul>
+  <h2>
+    Resolutions
+  </h2>
+  <ul class="tasks-list">
+    <li>
+      <p>
+        You can find a new location that lazy load the user-list mopdule:
+        <a href="#/users-list">
+          Users list
+        </a>
+      </p>
+      <p>
+        As usual, the HTTP request for retrieving users is done by a service. The results are only retrieved one time and stored
+        in this singleton.
+      </p>
+    </li>
+    <li>
+      <p>
+        The component
+        <a href="#/users-list">
+          Users list
+        </a>
+        is navigating to user detail component.
+      </p>
+      <p>
+        Taking the advantage of a service, to retrieve a user information does not requiere a new http request. The service is able
+        to return all the users list or just only one.
+      </p>
+      <p>
+        Regarding to styles, I have to explain that I didn't introduced any CSS framework but just copyed some W3 schools CSS
+        <a href="https://www.w3schools.com/w3css/">
+          https://www.w3schools.com/w3css/
+        </a>
+      </p>
+    </li>
+    <li>
+      <p>
+        The solution could be found in
+        <a href="#/home">
+          home section
+        </a>
+      </p>
+      <p>
+        There are many approaches for comunication between components. Frequently it is requiered a service but in this case I decided to handle the comunication from the parent component as you suggest.
+      </p>
+      <p>
+        Each component have a boolean variable that represents the login status. I decided to change the component for accepting a input, therefore parent is able to change the components login status.
+      </p>
+      <p>
+        In the other hand, each component will notify its login status by a output stream. When this output have a new value, the parent store it in the same variable that is an input for the other component.
+      </p>
+    </li>
+  </ul>
+  <h2>
+    Considerations
+  </h2>
+  <ul class="tasks-list">
+    <li>
+      <p>
+        I didn't had much free time to enhance this solution but it was a pleasure to follow this excercices 🤙
+      </p>
+      <p>
+        <b>My apologies</b>
+        because I didn't followed the TDD practice, so finally I did no tests of the service (where there are some logic)
+      </p>
     </li>
   </ul>
 </div>

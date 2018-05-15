@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/user.model';
 
 @Component({
@@ -6,24 +6,24 @@ import { User } from '../../models/user.model';
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.scss']
 })
-export class AppHeaderComponent implements OnInit {
+export class AppHeaderComponent {
   user: User = {
     firstName: 'Ahsan',
     lastName: 'Ayaz'
   };
-  isLoggedIn: boolean;
-  constructor() { }
 
-  ngOnInit() {
-    this.isLoggedIn = false;
-  }
+  @Output()
+  loginNotificator = new EventEmitter();
+
+  @Input()
+  isLoggedIn = false;
 
   /**
    * @author Ahsan Ayaz
    * @desc Logs the user in
    */
   login() {
-    this.isLoggedIn = true;
+    this.setLogin(true);
   }
 
   /**
@@ -31,7 +31,7 @@ export class AppHeaderComponent implements OnInit {
    * @desc Logs the user in
    */
   signup() {
-    this.isLoggedIn = true;
+    this.setLogin(true);
   }
 
   /**
@@ -39,7 +39,17 @@ export class AppHeaderComponent implements OnInit {
    * @desc Logs the user out
    */
   logout() {
-    this.isLoggedIn = false;
+    this.setLogin(false);
+  }
+
+  /**
+   * @author Ricard Castelló
+   * @desc handle the internal and external status of login
+   * @param value status to be set (representing logged or not)
+   */
+  setLogin(value: boolean) {
+    this.isLoggedIn = value;
+    this.loginNotificator.emit(value);
   }
 
 }

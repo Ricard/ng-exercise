@@ -1,0 +1,23 @@
+<ul>
+  <button (click)="goBack()" class="app-btn">
+    go to Landing
+  </button>
+
+  <li *ngFor="let user of usersList; let i = index">
+    <section (click)="viewDetail(i)">
+      <h2>
+        {{user.name.last | titlecase }}, {{user.name.first | titlecase }}
+      </h2>
+      <p>
+        <img src="assets/images/mail.png">
+        {{user.email}}
+      </p>
+      <p>
+        <img src="assets/images/phone.png">
+        <i>
+          {{user.phone}}
+        </i>
+      </p>
+    </section>
+  </li>
+</ul>

@@ -10,6 +10,9 @@ const routes: Routes = [{
   path: 'home',
   component: HomeComponent
 }, {
+  path: 'users-list',
+  loadChildren: 'app/users-list/users-list.module#UsersListModule'
+}, {
   path: '**',
   redirectTo: 'landing'
 }];

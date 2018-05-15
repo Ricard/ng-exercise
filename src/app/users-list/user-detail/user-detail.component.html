@@ -1,0 +1,22 @@
+<div class="card">
+  <img src="{{ (user | async)?.picture.large }}" style="width:100%">
+  <div class="container">
+    <h4>
+      <b>
+        {{ (user | async)?.name.last }}, {{ (user | async)?.name.first }}
+      </b>
+    </h4>
+    <p>
+      {{ (user | async)?.email }}
+      <img src="assets/images/mail.png">
+    </p>
+    <p>
+      <i>
+        {{ (user | async)?.phone }}
+      </i>
+      <img src="assets/images/phone.png">
+    </p>
+  </div>
+</div>
+
+<button (click)="goBack()" class="app-btn">go back</button>
